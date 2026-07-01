@@ -1,0 +1,24 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": { "major": 3, "minor": 20, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "stm32h7",
+      "displayName": "STM32H743 (arm-none-eabi, Ninja)",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "${sourceDir}/cmake/gcc-arm-none-eabi.cmake",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "stm32h7-release",
+      "inherits": "stm32h7",
+      "displayName": "STM32H743 Release",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    }
+  ],
+  "buildPresets": [
+    { "name": "stm32h7", "configurePreset": "stm32h7" },
+    { "name": "stm32h7-release", "configurePreset": "stm32h7-release" }
+  ]
+}
